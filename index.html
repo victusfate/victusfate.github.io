@@ -8,16 +8,11 @@
 	<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 -->
 	<link rel="stylesheet" type="text/css" href="style.css" />
-	<link href="prettify/prettify.css" type="text/css" rel="stylesheet" />
-	<script type="text/javascript" src="prettify/prettify.js"></script>	
   	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
   	<script src="script.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
 			GetMyRepos('victusfate');
-			$(names).each( function(index) {
-				alert('names '+this);
-			});
 		});
 	</script>
 </head>
@@ -49,9 +44,14 @@
 				</div>
 				<br/>
 				<div id="repos">
-					<h2>github repos with gh pages, work in progress</h2>
+					<h2>github repos & pages (works in progress)</h2>
 					<br />					
 				</div>
+				<br />
+				<div id="repos_nopages">
+						<h2>github repos</h2>
+						<br />					
+					</div>
 				<br />
 				<div id="info-console" style="display:block;font-size:12px;">
 					output log

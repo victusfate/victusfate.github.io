@@ -11,6 +11,7 @@ function GetMyRepos(uname) {
 	show("GetMyRepos apiurl " + github_repo_api, 'info-console');
 	$.getJSON(github_repo_api, function(ob) {
 		var repositories = ob.repositories;
+		var names=[],urls=[];
 		$(repositories).each(function(index) {
 			if (this['master_branch'] == "gh-pages") {
 				var s = this['homepage'];
@@ -19,7 +20,17 @@ function GetMyRepos(uname) {
 				}				
 				$('#repos').append('<div id="repo"><a href="'+s+'">'+this['name']+'</a></div>');
 			}
+			else {
+				if (this['fork'] !== true) {
+					names.push(this['name']);
+					urls.push(this['url']);
+				}
+			}
 		});
+		for (var i=0;i < names.length;i++) {
+			$('#repos_nopages').append('<div id="repo"><a href="'+urls[i]+'">'+names[i]+'</a></div>');
+		}
+		
 		return ob;
 	});
 /*	

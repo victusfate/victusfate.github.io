@@ -27,9 +27,9 @@ function GetMyRepos(uname) {
 				}
 			}
 		});
-		for (var i=0;i < names.length;i++) {
+		$(names).each(function(i) {
 			$('#repos_nopages').append('<div id="repo"><a href="'+urls[i]+'">'+names[i]+'</a></div>');
-		}
+		});
 		
 		return ob;
 	});

@@ -190,6 +190,7 @@ a, a:visited {
 
 a:hover{
 	text-decoration:underline;
+	color: red;
 }
 
 #loading{
@@ -249,9 +250,7 @@ h3 {
 	text-align: center;
 	color: #450e0d;
 }
-a {
-	color: #450e0d;
-}
+
 .description {
 	font-size: 1.2em;
 	margin-bottom: 30px;

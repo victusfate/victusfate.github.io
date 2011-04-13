@@ -8,11 +8,16 @@
 	<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 -->
 	<link rel="stylesheet" type="text/css" href="style.css" />
-  	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.js"></script>
+	<link href="prettify/prettify.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="prettify/prettify.js"></script>	
+  	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
   	<script src="script.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
-			GetMyRepos("victusfate");
+			GetMyRepos('victusfate');
+			$(names).each( function(index) {
+				alert('names '+this);
+			});
 		});
 	</script>
 </head>
@@ -27,39 +32,46 @@
 			<h1>
 				<a href="http://github.com/victusfate/victusfate.github.com">victusfate.github.com</a> <span class="small">by <a href="http://github.com/victusfate">victusfate</a></span>
 			</h1>
-			<div class="description">
-				description...
-			</div>
 			<div id="main">
-				<div class="big">
-					<img src="MichelleAndMeJustMarried1.jpeg" width="400" height="300" />
-
+				<div>
+					<p><img src="MichelleAndMeJustMarried1.jpeg" width="400" height="300" /></P>
+					<div id="big">
 					Howdy!
 					Welcome to my github user page.
-
+					</div>
+					<br />
 					<h2>about</h2>
-					I’m Mark Essel, a dataminer & systems engineer that’s added cofounder, web developer and author to my bag of tricks. My quest is to rediscover my life’s passions, and leverage that drive into profitable business ventures.
-
-					Perhaps even more importantly I want to aid others in listening to their inner muses and realizing an inspirational life path that invigorates them and their loved ones each day. Life is far too precious and short to settle for anything less.
-
+					<br />
+					I’m Mark Essel, a dataminer & systems engineer that’s added cofounder, web developer and author to my bag of tricks. 
 					You can reach me at messel at gmail dot com or messel at victusmedia dot com
 					I keep an active blog at <a href="http://www.victusspiritus.com">victusspiritus.com</a>.
 					
 				</div>
+				<br/>
+				<div id="repos">
+					<h2>github repos with gh pages, work in progress</h2>
+					<br />					
+				</div>
+				<br />
 				<div id="info-console" style="display:block;font-size:12px;">
 					output log
 				</div>
-				<div id="repos">
-					<h2>github repos with gh pages</h2>
-					yo bubba, reminder to make some ajax calls 
+				<br/>				
+				<div id="hrepos">
+					how I grabbed all my gh-page repos: github api docs (why aren't gists prettyprinted by default?)
+					<script src="https://gist.github.com/916818.js?file=github%20repo%20api%20"></script>
+					<h2>github api docs</h2>
+					<br/>
 					<ul>
 						<li><a href="http://develop.github.com/">http://develop.github.com/</a></li>
 						<li><a href="http://develop.github.com/p/general.html">http://develop.github.com/p/general.html</a></li>
 						<li><a href="http://develop.github.com/p/repo.html">http://develop.github.com/p/repo.html</a></li>
 						<li><a href="http://develop.github.com/p/users.html">http://develop.github.com/p/users.html</a></li>
 					</ul>
+					
 				</div>
 			</div>
+			<br />				
 			<h2>
 				Authors
 			</h2>
@@ -73,6 +85,7 @@
 			<p>
 				Mark Essel (messel@gmail.com)<br />
 			</p>
+			<br />				
 			<h2>
 				Download
 			</h2>

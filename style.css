@@ -277,3 +277,6 @@ hr {
 	padding-top: 30px;
 	font-style: italic;
 }
+
+.repos { border-style: outset; background-color: white; padding: 5px 10px 5px 10px; overflow:hidden;}
+.repos_nopages { border-style: outset; background-color: white; padding: 5px 10px 5px 10px; overflow:hidden;}

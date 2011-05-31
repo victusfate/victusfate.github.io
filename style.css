@@ -286,6 +286,6 @@ hr {
 #repos,#repos_nopages { 
 	border-style: outset; background-color: white; padding: 5px 10px 5px 10px; overflow:hidden;
 }
-#repos,#repos_nopages a { color:#3300FF; }
-#repos,#repos_nopages a:visited { color:#3300CC; }
+#repo a { color:#3300FF; }
+#repo a:visited { color:#3300CC; }
 

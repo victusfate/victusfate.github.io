@@ -289,4 +289,4 @@ hr {
 #repo a { color:#3300FF; }
 #repo a:visited { color:#3300CC; }
 
-#repos,#repos_nopages h2 { color: #000; }
+#repos h2,#repos_nopages h2 { color: #990000; }

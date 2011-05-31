@@ -187,9 +187,9 @@ a, a:visited {
 	outline:none;
 }
 
-a { color:#3300FF; }
+a { color:#CCFFFF; }
 
-a:visited { color:#3300CC; }
+a:visited { color:#66FFFF; }
 
 
 a:hover{
@@ -283,4 +283,9 @@ hr {
 	font-style: italic;
 }
 
-#repos,#repos_nopages { border-style: outset; background-color: white; padding: 5px 10px 5px 10px; overflow:hidden;}
+#repos,#repos_nopages { 
+	border-style: outset; background-color: white; padding: 5px 10px 5px 10px; overflow:hidden;
+	a { color:#3300FF; }
+	a:visited { color:#3300CC; }
+}
+

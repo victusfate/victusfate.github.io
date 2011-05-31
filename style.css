@@ -183,10 +183,14 @@ h2.tut{
 }
 
 a, a:visited {
-	color:#00BBFF;
 	text-decoration:none;
 	outline:none;
 }
+
+a { color:#3300FF; }
+
+a:visited { color:#3300CC; }
+
 
 a:hover{
 	text-decoration:underline;
@@ -223,7 +227,8 @@ h1{
 
 body {
 	margin-top: 1.0em;
-	background-color: #baf1f2;
+	background-image:-moz-radial-gradient(center -100px 45deg, circle farthest-corner, #999 25px, #000 450px);
+	background-image:-webkit-gradient(radial, 50% 0, 25, 50% 0, 450, from(#999), to(#000));font-family: "Helvetica,Arial,FreeSans";
 	font-family: "Helvetica,Arial,FreeSans";
 	color: #000000;
 }

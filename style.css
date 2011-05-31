@@ -227,8 +227,8 @@ h1{
 
 body {
 	margin-top: 1.0em;
-	background-image:-moz-radial-gradient(center -100px 45deg, circle farthest-corner, #333 25px, #000 450px);
-	background-image:-webkit-gradient(radial, 50% 0, 25, 50% 0, 450, from(#333), to(#000));font-family: "Helvetica,Arial,FreeSans";
+	background-image:-moz-radial-gradient(center -100px 45deg, circle farthest-corner, #999 25px, #333 450px);
+	background-image:-webkit-gradient(radial, 50% 0, 25, 50% 0, 450, from(#999), to(#333));font-family: "Helvetica,Arial,FreeSans";
 	font-family: "Helvetica,Arial,FreeSans";
 	color: #ffffff;
 }

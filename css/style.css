@@ -284,8 +284,14 @@ hr {
 }
 
 #repos,#repos_nopages { 
-	border-style: outset; background-color: white; padding: 5px 10px 5px 10px; overflow:hidden;
+	border-style: outset; 
+	background-color: white; 
+	padding: 5px 10px 5px 10px; 
+	overflow:hidden;
+	color: black;
+	line-height: 150%;
 }
+
 #repo a { color:#3300FF; }
 #repo a:visited { color:#3300CC; }
 

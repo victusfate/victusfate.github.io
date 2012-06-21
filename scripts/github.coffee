@@ -8,24 +8,16 @@ show = (text, target) ->
 
 GetMyRepos = (uname) ->
     github_repo_api = "https://api.github.com/users/" + uname + "/repos?callback=?"
-    console.log "GetMyRepos apiurl " + github_repo_api
     $.getJSON github_repo_api, (ob) ->
-        repositories = ob["data"]
-        console.log "returned size " + JSON.stringify(repositories)
+        repos = ob.data
         names = []
         urls = []
         descs = []
-        $(repositories).each (index) ->
-            if this["master_branch"]
-                if this["master_branch"] == "gh-pages"
-                    s = this["homepage"]
-                    s = "http://" + s   unless s.match(/^[a-zA-Z]+:\/\//)
-                    $("#repos").append '<div id="repo"><a href="' + s + '">' + this["name"] + '</a>:  ' + this["description"] + '</div>'
-                else
-                    if this["fork"] != true
-                        names.push this["name"]
-                        urls.push this["url"]
-                        descs.push this["description"]
+        $(repos).each (index) ->
+            if this["master_branch"] == "gh-pages"
+                s = this["homepage"]
+                s = "http://" + s   unless s.match(/^[a-zA-Z]+:\/\//)
+                $("#repos").append '<div id="repo"><a href="' + s + '">' + this["name"] + '</a>:  ' + this["description"] + '</div>'
             else
                 if this["fork"] != true
                     names.push this["name"]
@@ -40,15 +32,15 @@ window.GetMyRepos = GetMyRepos
 SearchRepos = (key,language="") ->
     langstr = ""
     langstr = "?language="+language if language
-    github_repo_api = "https://github.com/api/v3/repos/search/" + key + langstr + "?callback=?"
+    github_repo_api = "https://api.github.com/repos/search/" + key + langstr + "?callback=?"
     console.log "GetMyRepos apiurl " + github_repo_api, "info-console"
     $.getJSON github_repo_api, (ob) ->
-        repositories = ob.data
+        repos = ob.data
         names = []
         urls = []
         descs = []
         dates = []
-        $(repositories).each (index) ->
+        $(repos).each (index) ->
                 if this["fork"] != true
                     names.push this["name"]
                     urls.push this["url"]

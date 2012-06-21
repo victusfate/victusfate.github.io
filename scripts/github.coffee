@@ -10,8 +10,8 @@ GetMyRepos = (uname) ->
     github_repo_api = "https://api.github.com/users/" + uname + "/repos?callback=?"
     console.log "GetMyRepos apiurl " + github_repo_api
     $.getJSON github_repo_api, (ob) ->
-        console.log "returned size " + JSON.stringify(ob)
-        repositories = ob.data
+        repositories = ob["data"]
+        console.log "returned size " + repositories.length
         names = []
         urls = []
         descs = []

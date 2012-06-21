@@ -11,7 +11,7 @@ GetMyRepos = (uname) ->
     console.log "GetMyRepos apiurl " + github_repo_api
     $.getJSON github_repo_api, (ob) ->
         console.log "returned size " + JSON.stringify(ob)
-        repositories = ob.repositories
+        repositories = ob.data
         names = []
         urls = []
         descs = []
@@ -37,7 +37,7 @@ SearchRepos = (key,language="") ->
     github_repo_api = "https://github.com/api/v3/repos/search/" + key + langstr + "?callback=?"
     console.log "GetMyRepos apiurl " + github_repo_api, "info-console"
     $.getJSON github_repo_api, (ob) ->
-        repositories = ob.repositories
+        repositories = ob.data
         names = []
         urls = []
         descs = []

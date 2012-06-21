@@ -7,13 +7,14 @@ show = (text, target) ->
 # https://api.github.com/users/victusfate/repos
 
 GetMyRepos = (uname) ->
-    github_repo_api = "https://api.github.com/users/" + uname + "/repos?callback=?"
+    github_repo_api = "https://api.github.com/users/" + uname + "/repos?per_page=100&callback=?"
     $.getJSON github_repo_api, (ob) ->
         repos = ob.data
         names = []
         urls = []
         descs = []
         $(repos).each (index) ->
+            console.log "index " + index + " repo " + JSON.stringify(this)
             if this["master_branch"] == "gh-pages"
                 s = this["homepage"]
                 s = "http://" + s   unless s.match(/^[a-zA-Z]+:\/\//)
@@ -32,7 +33,7 @@ window.GetMyRepos = GetMyRepos
 SearchRepos = (key,language="") ->
     langstr = ""
     langstr = "?language="+language if language
-    github_repo_api = "https://api.github.com/repos/search/" + key + langstr + "?callback=?"
+    github_repo_api = "https://api.github.com/repos/search/" + key + langstr + "?per_page=100&callback=?"
     console.log "GetMyRepos apiurl " + github_repo_api, "info-console"
     $.getJSON github_repo_api, (ob) ->
         repos = ob.data

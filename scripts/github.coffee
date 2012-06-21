@@ -16,10 +16,16 @@ GetMyRepos = (uname) ->
         urls = []
         descs = []
         $(repositories).each (index) ->
-            if this["master_branch"] == "gh-pages"
-                s = this["homepage"]
-                s = "http://" + s   unless s.match(/^[a-zA-Z]+:\/\//)
-                $("#repos").append '<div id="repo"><a href="' + s + '">' + this["name"] + '</a>:  ' + this["description"] + '</div>'
+            if this["master_branch"]
+                if this["master_branch"] == "gh-pages"
+                    s = this["homepage"]
+                    s = "http://" + s   unless s.match(/^[a-zA-Z]+:\/\//)
+                    $("#repos").append '<div id="repo"><a href="' + s + '">' + this["name"] + '</a>:  ' + this["description"] + '</div>'
+                else
+                    if this["fork"] != true
+                        names.push this["name"]
+                        urls.push this["url"]
+                        descs.push this["description"]
             else
                 if this["fork"] != true
                     names.push this["name"]

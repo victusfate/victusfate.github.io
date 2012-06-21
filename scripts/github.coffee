@@ -11,7 +11,7 @@ GetMyRepos = (uname) ->
     console.log "GetMyRepos apiurl " + github_repo_api
     $.getJSON github_repo_api, (ob) ->
         repositories = ob["data"]
-        console.log "returned size " + repositories.length
+        console.log "returned size " + JSON.stringify(repositories)
         names = []
         urls = []
         descs = []

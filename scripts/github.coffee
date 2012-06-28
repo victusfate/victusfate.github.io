@@ -33,10 +33,10 @@ window.GetMyRepos = GetMyRepos
 SearchRepos = (key,language="") ->
     langstr = ""
     langstr = "?language="+language if language
-    github_repo_api = "https://api.github.com/repos/search/" + key + langstr + "?per_page=100&callback=?"
-    console.log "GetMyRepos apiurl " + github_repo_api, "info-console"
+    github_repo_api = "https://api.github.com/legacy/repos/search/" + key + langstr + "?callback=?"
+    console.log "GetMyRepos apiurl " + github_repo_api
     $.getJSON github_repo_api, (ob) ->
-        repos = ob.data
+        repos = ob.data.repositories
         names = []
         urls = []
         descs = []

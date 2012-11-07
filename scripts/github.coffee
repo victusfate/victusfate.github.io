@@ -15,14 +15,14 @@ GetMyRepos = (uname) ->
         descs = []
         $(repos).each (index) ->
             console.log "index " + index + " repo " + JSON.stringify(this)
-            if this["master_branch"] == "gh-pages"
-                s = this["homepage"]
-                s = "http://" + s   unless s.match(/^[a-zA-Z]+:\/\//)
-                $("#repos").append '<div id="repo"><a href="' + s + '">' + this["name"] + '</a>:  ' + this["description"] + '</div>'
-            else
-                if this["fork"] != true
+            if this["fork"] != true
+                if this["master_branch"] == "gh-pages"
+                    s = this["homepage"]
+                    s = "http://" + s   unless s.match(/^[a-zA-Z]+:\/\//)
+                    $("#repos").append '<div id="repo"><a href="' + s + '">' + this["name"] + '</a>:  ' + this["description"] + '</div>'
+                else
                     names.push this["name"]
-                    urls.push this["url"]
+                    urls.push this["html_url"]
                     descs.push this["description"]
 
         $(names).each (i) ->
@@ -42,11 +42,11 @@ SearchRepos = (key,language="") ->
         descs = []
         dates = []
         $(repos).each (index) ->
-                if this["fork"] != true
-                    names.push this["name"]
-                    urls.push this["url"]
-                    descs.push this["description"]
-                    dates.push this["created"]
+            if this["fork"] != true
+                names.push this["name"]
+                urls.push this["html_url"]
+                descs.push this["description"]
+                dates.push this["created"]
 
 #       $("#repos_nopages").append '<table cellpadding="0" cellspacing="0">'
         $(names).each (i) ->

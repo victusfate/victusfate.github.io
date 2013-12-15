@@ -18,7 +18,7 @@ GetMyRepos = (uname) ->
             if this["fork"] != true
                 if this["master_branch"] == "gh-pages"
                     s = this["homepage"]
-                    s = "http://" + s   unless s.match(/^[a-zA-Z]+:\/\//)
+                    s = "http://" + s   unless s and s.match(/^[a-zA-Z]+:\/\//)
                     $("#repos").append '<div id="repo"><a href="' + s + '">' + this["name"] + '</a>:  ' + this["description"] + '</div>'
                 else
                     names.push this["name"]

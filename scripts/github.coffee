@@ -16,7 +16,7 @@ GetMyRepos = (uname) ->
         $(repos).each (index) ->
             console.log "index " + index + " repo " + JSON.stringify(this)
             if this["fork"] != true
-                if this["master_branch"] == "gh-pages"
+                if this["default_branch"] == "gh-pages"
                     s = this["homepage"]
                     s = "http://" + s   unless s and s.match(/^[a-zA-Z]+:\/\//)
                     $("#repos").append '<div id="repo"><a href="' + s + '">' + this["name"] + '</a>:  ' + this["description"] + '</div>'

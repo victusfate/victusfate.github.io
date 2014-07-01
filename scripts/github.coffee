@@ -6,28 +6,40 @@ show = (text, target) ->
     
 # https://api.github.com/users/victusfate/repos
 
-GetMyRepos = (uname) ->
-    github_repo_api = "https://api.github.com/users/" + uname + "/repos?per_page=100&callback=?"
-    $.getJSON github_repo_api, (ob) ->
-        repos = ob.data
-        names = []
-        urls = []
-        descs = []
-        $(repos).each (index) ->
-            console.log "index " + index + " repo " + JSON.stringify(this)
-            if this["fork"] != true
-                if this["default_branch"] == "gh-pages"
-                    s = this["homepage"]
-                    s = "http://" + s   unless s and s.match(/^[a-zA-Z]+:\/\//)
-                    $("#repos").append '<div id="repo"><a href="' + s + '">' + this["name"] + '</a>:  ' + this["description"] + '</div>'
-                else
-                    names.push this["name"]
-                    urls.push this["html_url"]
-                    descs.push this["description"]
+UrlForPage = (uname,pageNumber) ->
+    "https://api.github.com/users/" + uname + "/repos?per_page=100&page=" + pageNumber + "&callback=?"
 
-        $(names).each (i) ->
-            $("#repos_nopages").append '<div id="repo"><a href="' + urls[i] + '">' + names[i] + '</a>:  ' + descs[i] + '</div>'
-        ob  
+GetMyRepos = (uname) ->
+    morePages = true
+    page = 1
+    getAnotherPage = (page) ->
+        github_repo_api = UrlForPage(uname,page)
+        console.log "url #{github_repo_api}"
+        $.getJSON github_repo_api, (ob) ->
+            page++;
+            repos = ob.data
+            morePages = false if repos.length == 0
+            names = []
+            urls = []
+            descs = []
+            $(repos).each (index) ->
+                console.log "index " + index + " repo " + this.name
+                if this["fork"] != true
+                    if this["default_branch"] == "gh-pages"
+                        s = this["homepage"]
+                        s = "http://" + s   unless s and s.match(/^[a-zA-Z]+:\/\//)
+                        $("#repos").append '<div id="repo"><a href="' + s + '">' + this["name"] + '</a>:  ' + this["description"] + '</div>'
+                    else
+                        names.push this["name"]
+                        urls.push this["html_url"]
+                        descs.push this["description"]
+
+            $(names).each (i) ->
+                $("#repos_nopages").append '<div id="repo"><a href="' + urls[i] + '">' + names[i] + '</a>:  ' + descs[i] + '</div>'
+            getAnotherPage(page) if morePages
+    
+    getAnotherPage(page)   
+
 window.GetMyRepos = GetMyRepos
 
 SearchRepos = (key,language="") ->

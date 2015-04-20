@@ -3,7 +3,7 @@ $(document).ready(function() {
 });
  
 function SetupGrowingDivs() {
-	$('div.gist-file').live({
+	$('div.gist-file').on({		
 		mouseover: function() {
 			$(this).css('z-index', '100');
 			$(this).stop().animate({

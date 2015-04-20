@@ -18,7 +18,7 @@ GetMyRepos = (uname) ->
         $.getJSON github_repo_api, (ob) ->
             page++;
             repos = ob.data
-            morePages = false if repos.length == 0
+            morePages = false if repos.length == 0 || !Array.isArray(repos)
             names = []
             urls = []
             descs = []

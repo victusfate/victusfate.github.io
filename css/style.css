@@ -292,6 +292,12 @@ hr {
 	line-height: 150%;
 }
 
+.github_card {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
 #repo a { color:#3300FF; }
 #repo a:visited { color:#3300CC; }
 
